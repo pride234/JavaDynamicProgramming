@@ -1,0 +1,48 @@
+	private static long AnyRules(int mask, int i) {
+
+		long max = 0;
+		for (int j = 0; j<i; j++ ) {
+			
+			if ((( (mask & (1 << n - rules[j][0] )) != 0) & ((mask & (1 << n - rules[j][1] )) != 0)) == false ) continue;
+			
+			if (used[rules[j][0]][rules[j][1]] == 0) {
+				
+				Used(rules[j][0], rules[j][1]);
+				max = Math.max(max, rules[j][2] + AnyRules(mask, j));
+				NotUsed(rules[j][0], rules[j][1]);
+			}
+		}		
+
+		for (int j = i + 1; j<k; j++ ) {
+			
+			if ((( (mask & (1 << n - rules[j][0] )) != 0) & ((mask & (1 << n - rules[j][1] )) != 0)) == false ) continue;
+			
+			if (used[rules[j][0]][rules[j][1]] == 0) {
+				
+				Used(rules[j][0], rules[j][1]);
+				max = Math.max(max, rules[j][2] + AnyRules(mask, j));
+				NotUsed(rules[j][0], rules[j][1]);
+			}
+		}		
+		
+		return max;
+	}
+
+	
+				else {
+				
+				Clear();
+				Used(rules[j][0], rules[j][1]);
+				Used(0, rules[j][0]);
+				max = Math.max(max, AnyRules2(mask, j));
+				used = temp;
+			}
+			
+				private static void NotUsed(int c1, int c2) {
+		
+		for (int i = 0; i<n+1; i++) {
+			
+			used[c1][i] = 0;
+			used[i][c2] = 0;
+		}
+	}

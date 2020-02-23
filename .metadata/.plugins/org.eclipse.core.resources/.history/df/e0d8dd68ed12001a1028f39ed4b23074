@@ -1,0 +1,30 @@
+import java.math.BigInteger;
+
+public class BM {
+	
+	public static void BM () {
+		
+		BigInteger p = new BigInteger("CEA42B987C44FA642D80AD9F51F10457690DEF10C83D0BC1BCEE12FC3B6093E3",16 );
+		BigInteger a = new BigInteger("5B88C41246790891C095E2878880342E88C79974303BD0400B090FE38A688356",16 );
+		BigInteger T = new BigInteger("BEA42B987C44FA642D80AD9F51F10457690DEF10C83D0BC1BCEE12FC3B6093E3", 16);
+		
+		String str = "";
+		BigInteger temp = p.subtract(new BigInteger("1")).divide(new BigInteger("2"));
+		
+		for (int i = 0; i<8_000_000; i++) {
+			
+			/*if (T.compareTo(temp) < 0) str += "1";
+			else str += "0";*/
+			T = a.modPow(T, p);
+			
+		}
+		
+		System.out.println("Hurray!");		
+		System.out.println(str);		
+	}
+	
+	public static void main(String[] args) {
+	
+		BM();
+	}	
+}

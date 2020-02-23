@@ -1,0 +1,32 @@
+import java.math.BigInteger;
+
+public class BM {
+	
+	public static void BM () {
+		
+		BigInteger p = new BigInteger("CEA42B987C44FA642D80AD9F51F10457690DEF10C83D0BC1BCEE12FC3B6093E3",16 );
+		BigInteger a = new BigInteger("5B88C41246790891C095E2878880342E88C79974303BD0400B090FE38A688356",16 );
+		BigInteger T = new BigInteger("BEA42B987C44FA642D80AD9F51F10457690DEF10C83D0BC1BCEE12FC3B6093E3", 16);
+		
+		String str = "";
+		BigInteger temp = p.subtract(new BigInteger("1")).divide(new BigInteger("2"));
+		
+		byte[] bytes = new byte[8_000_000];
+		
+		for (int i = 0; i<8_000_000; i++) {
+			
+			if (T.compareTo(temp) < 0) bytes[i] = 1;
+			T = a.modPow(T, p);
+			
+		}
+		
+		//System.out.println("Hurray!");		
+		for (int i = 0; i < 8_000_000; i++) System.out.print(bytes[i]);		
+	}
+	
+	public static void main(String[] args) {
+	
+		BigInteger p = new BigInteger("121484508629470467986782269196138451750256994691512499208305247678729721715132141505540867768133590424113499267440320496125081815380718683290090910331735708359572935933867545824931732238836292820032874655861627218047871849331576979543961688001415787701027149047524645435413901591694030641990452064676434921107"); 
+		System.out.print(p.nextProbablePrime());
+	}	
+}
